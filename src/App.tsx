@@ -22,7 +22,7 @@ const REDIRECT = {
   parentKO: 'https://ressources.trari-pedagogie.com/3-exercices-parents',
   proKO:    'https://ressources.trari-pedagogie.com/3-exercices-professionnels',
 }
-const VPS_ENDPOINT = 'http://204.168.143.240:8080/sas-lead'
+const VPS_ENDPOINT = '/api/lead'
 const ADMIN_PASSWORD = 'trari2026admin'
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
@@ -161,7 +161,6 @@ async function sendToVPS(lead: Lead) {
     await fetch(VPS_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      mode: 'no-cors',
       body: JSON.stringify(lead),
     })
   } catch (e) {
